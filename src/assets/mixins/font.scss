@@ -1,0 +1,12 @@
+@mixin default-font {
+  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+  font-style: normal;
+  line-height: 150%;
+  font-weight: 400;
+}
+@mixin big-font {
+  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+  font-style: normal;
+  line-height: 150%;
+  font-weight: 700;
+}

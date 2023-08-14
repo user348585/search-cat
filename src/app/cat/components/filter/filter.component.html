@@ -1,0 +1,43 @@
+<div>
+  <div class="container">
+    <mat-form-field class="container-field">
+      <mat-label>Breed</mat-label>
+      <mat-select [formControl]="breedControl" (selectionChange)="onChangeBreed()">
+        <mat-option *ngFor="let breed  of (breed$ | async)" [value]="breed.id">
+          {{breed.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select breed</mat-label>
+      <mat-select [formControl]="selectLength" (selectionChange)="onChangeLength()">
+        <mat-option *ngFor="let select of selectList()" [value]="select">
+          {{select}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div *ngFor="let item of (breed$ | async  | slice:1: searchLength() + 1 | filterBreed : searchValue()); trackBy: trackBreed" class="items">
+      <mat-card class="mat-card">
+        <img mat-card-image src="{{item?.image?.url}}" alt="" class="card-img">
+        <mat-card-content>
+          <h2
+            class="card-title"
+          >{{item.name}}</h2>
+          <p
+            class="card-subtitle"
+          >{{item.description}}</p>
+        </mat-card-content>
+        <div class="service_back_card">
+          <h1 class="back-text">Characteristic</h1>
+          <div class="back-row back-text" *ngFor="let char of item.characteristic">
+            <div>{{char.name}}</div>
+            <div>{{char.value}}</div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

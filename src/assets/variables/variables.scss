@@ -1,0 +1,7 @@
+@use "sass:math";
+@function rem($pixels, $context: 16px) {
+  @return #{math.div($pixels, $context)}rem;
+}
+
+$s-fs: rem(14px);
+$sm-fs: rem(18px);
